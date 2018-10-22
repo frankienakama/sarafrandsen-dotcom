@@ -1,0 +1,20 @@
+{
+    "twitter": {
+        "title": "Deer Twitter,",
+        "description": [
+            "This was a fun project, where I learned basic C# and Unity in 3 weeks!",
+            "'Deer Twitter,' is my attempt at making a piece of art using technology as a medium while showing off the skills learned at Ada."
+        ],
+        "link": "https://sarafrandsen.itch.io/deer-twitter"
+    },
+    "": {
+        "title": "",
+        "description": "",
+        "link": ""
+    },
+    "": {
+        "title": "",
+        "description": "",
+        "link": ""
+    }
+}
