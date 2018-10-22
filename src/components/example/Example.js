@@ -11,7 +11,17 @@ class Example extends Component {
     } = this.props;
 
     return (
-      <section />
+      <section>
+        <p>
+          {title}
+        </p>
+        <p>
+          {description}
+        </p>
+        <a href={url}>
+          {url}
+        </a>
+      </section>
     )
   }
 }
