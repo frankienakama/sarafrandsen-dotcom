@@ -8,7 +8,9 @@ class App extends Component {
   render() {
     return (
       <section className={styles}>
-        <Intro topCopyA={intro.top.A} topCopyB={intro.top.B} />
+        <Intro copyA={intro.top.A} copyB={intro.top.B} />
+        <Intro copyA={intro.mid.A} copyB={intro.mid.B} />
+        <Intro copyA={intro.bottom.A} copyB={intro.bottom.B} />
         <Content />
       </section>
     );

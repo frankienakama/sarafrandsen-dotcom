@@ -29,12 +29,12 @@ class Intro extends Component {
 
   render() {
 
-      const { topCopyA, topCopyB } = this.props;
+      const { copyA, copyB } = this.props;
       const { isHoveringTop } = this.state;
 
       const classes = classNames(styles.index);
 
-      const copy = isHoveringTop ? topCopyB : topCopyA;
+      const copy = isHoveringTop ? copyB : copyA;
 
     return (
       <section>
@@ -46,15 +46,6 @@ class Intro extends Component {
           >
             {copy}
           </p>
-          <div>
-            <p
-              className={classes}
-              onMouseEnter={this.handleMouseEnter}
-              onMouseLeave={this.handleMouseLeave}
-            >
-              {copy}
-            </p>
-          </div>
         </div>
       </section>
     )
