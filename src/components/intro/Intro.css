@@ -2,12 +2,14 @@
   cursor: pointer;
 }
 
-.topA {
-  color: red;
+.top {
+  background-color: yellow;
+  color: #666;
 }
 
-.topB {
-  color: blue;
+.topAlternate {
+  background-color: blue;
+  color: #ddd;
 }
 
 .hidden {
