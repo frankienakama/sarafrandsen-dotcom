@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Example from '../example/Example';
-import copy from '../../text/examples.json';
+import example from '../example/example.json';
 
 class Content extends Component {
     render() {
-        const twitter = copy.twitter;
+        const twitter = example.twitter;
 
         return (
             <Example title={twitter.title} description={twitter.description} url={twitter.url} />
