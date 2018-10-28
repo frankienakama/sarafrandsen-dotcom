@@ -28,39 +28,39 @@ class Intro extends Component {
   };
 
   render() {
-      const {
-        copyA,
-        copyB
-      } = this.props;
+    const {
+      copyA,
+      copyB
+    } = this.props;
 
-      const classes = classNames({
-        [styles.index]: true,
-        [styles.topA]: !this.state.topActive,
-        [styles.topB]: this.state.topActive
-      });
+    const classes = classNames({
+      [styles.index]: true,
+      [styles.topA]: !this.state.topActive,
+      [styles.topB]: this.state.topActive
+    });
 
-      return (
-        <section>
+    return (
+      <section>
+        <div>
+          <p
+            className={classes}
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
+          >
+            {copyA}
+          </p>
           <div>
             <p
               className={classes}
               onMouseEnter={this.handleMouseEnter}
               onMouseLeave={this.handleMouseLeave}
             >
-              {copyA}
+              {copyB}
             </p>
-            <div>
-              <p
-                className={classes}
-                onMouseEnter={this.handleMouseEnter}
-                onMouseLeave={this.handleMouseLeave}
-              >
-                {copyB}
-              </p>
-            </div>
           </div>
-        </section>
-      )
+        </div>
+      </section>
+    )
   }
 }
 
