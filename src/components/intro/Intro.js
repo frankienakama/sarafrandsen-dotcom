@@ -5,8 +5,9 @@ import styles from './Intro.css';
 
 class Intro extends Component {
   render() {
+    console.log(styles)
     return (
-        <span className={styles.red}>Hello, world!</span>
+        <span className={styles.red}>Hello, borld!</span>
     )
   }
 }
