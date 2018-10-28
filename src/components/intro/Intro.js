@@ -7,65 +7,58 @@ class Intro extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHoveringTop: false,
-      isHoveringMid: false,
-      // midActive: false,
-      // bottomActive: false,
-    };
+      isHovering: false
+    }
   }
 
   handleMouseEnter = () => {
     this.setState({
-      isHoveringTop: true,
-      isHoveringMid: true
-      // {midActive: true},
-      // {bottomActive: true}
+      isHovering: true
     });
   };
 
   handleMouseLeave = () => {
     this.setState({
-      isHoveringTop: false,
-      isHoveringMid: false
+      isHovering: false
     });
   };
 
   render() {
-    const { copyA, copyB, section } = this.props;
-    const { isHoveringTop, isHoveringMid } = this.state;
+    const { copyA, copyB, introSection } = this.props;
+    const { isHovering } = this.state;
 
-    const topClasses = classNames(
-      styles.index,
-      styles.mid,
+    const sectionClasses = classNames(
       {
-        [styles.top]: this.section="top",
-        [styles.topAlternate]: [isHoveringTop, this.section="top"],
-        [styles.midAlternate]: [isHoveringMid, this.section="mid"]
+        [styles.top]: introSection==="top",
+        [styles.mid]: introSection==="mid",
+        [styles.bottom]: introSection==="bottom",
+        [styles.topAlternate]: isHovering && introSection==="top",
+        [styles.midAlternate]: isHovering && introSection==="mid",
+        [styles.bottomAlternate]: isHovering && introSection==="bottom"
       }
     );
 
-    const copy = isHoveringTop ? copyB : copyA;
+    const copy = isHovering ? copyB : copyA;
 
     return (
-      <section>
-        <div>
-          <p
-            className={topClasses}
-            onMouseEnter={this.handleMouseEnter}
-            onMouseLeave={this.handleMouseLeave}
-            section
-          >
-            {copy}
-          </p>
-        </div>
+      <section className={styles.section}>
+        <p
+          className={sectionClasses}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+          introSection={introSection}
+        >
+          {copy}
+        </p>
       </section>
     )
   }
 }
 
 Intro.propTypes = {
-  topCopyA: PropTypes.string.isRequired,
-  topCopyB: PropTypes.string.isRequired,
+  copyA: PropTypes.string.isRequired,
+  copyB: PropTypes.string.isRequired,
+  introSection: PropTypes.oneOf(["top", "mid", "bottom"])
 };
 
 export default Intro;

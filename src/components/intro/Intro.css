@@ -1,5 +1,5 @@
-.index {
-  cursor: pointer;
+.section {
+  height: 33.5%;
 }
 
 .top {
@@ -10,8 +10,4 @@
 .topAlternate {
   background-color: blue;
   color: #ddd;
-}
-
-.hidden {
-  visibility: hidden;
 }
