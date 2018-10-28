@@ -30,10 +30,10 @@ class Intro extends Component {
     const classes = classNames(
       styles.index,
       {
-        [styles.top]: this.section="top",
-        [styles.mid]: this.section="mid",
-        [styles.topAlternate]: [isHovering, this.section="top"],
-        [styles.midAlternate]: [isHovering, this.section="mid"]
+        [styles.top]: {section:"top"},
+        [styles.mid]: {section:"mid"},
+        [styles.topAlternate]: [isHovering && {section:"top"}],
+        [styles.midAlternate]: [isHovering && {section:"mid"}]
       }
     );
 
