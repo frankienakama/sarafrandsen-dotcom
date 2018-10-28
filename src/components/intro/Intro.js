@@ -24,33 +24,32 @@ class Intro extends Component {
   };
 
   render() {
-    const { copyA, copyB, section } = this.props;
+    const { copyA, copyB, introSection } = this.props;
     const { isHovering } = this.state;
 
-    const classes = classNames(
-      styles.index,
+    const sectionClasses = classNames(
       {
-        [styles.top]: section==="top",
-        [styles.mid]: section==="mid",
-        [styles.topAlternate]: [isHovering, section==="top"],
-        [styles.midAlternate]: [isHovering, section==="mid"]
+        [styles.top]: introSection==="top",
+        [styles.mid]: introSection==="mid",
+        [styles.bottom]: introSection==="bottom",
+        [styles.topAlternate]: isHovering && introSection==="top",
+        [styles.midAlternate]: isHovering && introSection==="mid",
+        [styles.bottomAlternate]: isHovering && introSection==="bottom"
       }
     );
 
     const copy = isHovering ? copyB : copyA;
 
     return (
-      <section>
-        <div>
-          <p
-            className={classes}
-            onMouseEnter={this.handleMouseEnter}
-            onMouseLeave={this.handleMouseLeave}
-            section
-          >
-            {copy}
-          </p>
-        </div>
+      <section className={styles.section}>
+        <p
+          className={sectionClasses}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+          introSection={introSection}
+        >
+          {copy}
+        </p>
       </section>
     )
   }
@@ -59,7 +58,7 @@ class Intro extends Component {
 Intro.propTypes = {
   copyA: PropTypes.string.isRequired,
   copyB: PropTypes.string.isRequired,
-  section: PropTypes.oneOf(["top", "mid", "bottom"])
+  introSection: PropTypes.oneOf(["top", "mid", "bottom"])
 };
 
 export default Intro;
