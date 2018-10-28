@@ -7,37 +7,34 @@ class Intro extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      topActive: false,
+      isHoveringTop: false,
       // midActive: false,
       // bottomActive: false,
     };
   }
 
   handleMouseEnter = () => {
-    this.setState(
-      {topActive: true},
+    this.setState({
+      isHoveringTop: true
       // {midActive: true},
       // {bottomActive: true}
-    );
+    });
   };
 
   handleMouseLeave = () => {
-    this.setState(
-      {topActive: false}
-    );
+    this.setState({
+      isHoveringTop: false
+    });
   };
 
   render() {
-    const {
-      copyA,
-      copyB
-    } = this.props;
 
-    const classes = classNames({
-      [styles.index]: true,
-      [styles.topA]: !this.state.topActive,
-      [styles.topB]: this.state.topActive
-    });
+      const { topCopyA, topCopyB } = this.props;
+      const { isHoveringTop } = this.state;
+
+      const classes = classNames(styles.index);
+
+      const copy = isHoveringTop ? topCopyB : topCopyA;
 
     return (
       <section>
@@ -47,7 +44,7 @@ class Intro extends Component {
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
           >
-            {copyA}
+            {copy}
           </p>
           <div>
             <p
@@ -55,7 +52,7 @@ class Intro extends Component {
               onMouseEnter={this.handleMouseEnter}
               onMouseLeave={this.handleMouseLeave}
             >
-              {copyB}
+              {copy}
             </p>
           </div>
         </div>
@@ -64,9 +61,10 @@ class Intro extends Component {
   }
 }
 
-Intro.PropTypes = {
-  copy: PropTypes.string
-}
+Intro.propTypes = {
+  topCopyA: PropTypes.string.isRequired,
+  topCopyB: PropTypes.string.isRequired,
+};
 
 export default Intro;
 
