@@ -1,11 +1,15 @@
-.clickMe {
+.index {
   cursor: pointer;
 }
 
-.red {
+.topA {
   color: red;
 }
 
-.blue {
+.topB {
   color: blue;
+}
+
+.hidden {
+  visibility: hidden;
 }

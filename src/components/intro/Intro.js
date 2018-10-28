@@ -6,32 +6,66 @@ import styles from './Intro.css';
 class Intro extends Component {
   constructor(props) {
     super(props);
-    this.state = {active: false};
+    this.state = {
+      topActive: false,
+      // midActive: false,
+      // bottomActive: false,
+    };
   }
 
   handleMouseEnter = () => {
-    this.setState({ active: true });
+    this.setState(
+      {topActive: true},
+      // {midActive: true},
+      // {bottomActive: true}
+    );
   };
 
   handleMouseLeave = () => {
-    this.setState({ active: false });
+    this.setState(
+      {topActive: false}
+    );
   };
 
   render() {
+      const {
+        copyA,
+        copyB
+      } = this.props;
+
       const classes = classNames({
-        [styles.clickMe]: true,
-        [styles.blue]: !this.state.active,
-        [styles.red]: this.state.active
+        [styles.index]: true,
+        [styles.topA]: !this.state.topActive,
+        [styles.topB]: this.state.topActive
       });
 
       return (
-        <span className={classes}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-        >
-          Click me
-        </span>)
+        <section>
+          <div>
+            <p
+              className={classes}
+              onMouseEnter={this.handleMouseEnter}
+              onMouseLeave={this.handleMouseLeave}
+            >
+              {copyA}
+            </p>
+            <div>
+              <p
+                className={classes}
+                onMouseEnter={this.handleMouseEnter}
+                onMouseLeave={this.handleMouseLeave}
+              >
+                {copyB}
+              </p>
+            </div>
+          </div>
+        </section>
+      )
   }
+}
+
+Intro.PropTypes = {
+  copy: PropTypes.string
 }
 
 export default Intro;

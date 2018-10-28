@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Content from './components/content/Content';
 import Intro from './components/intro/Intro';
-import './App.css';
+import styles from './App.css';
+import intro from './components/intro/intro.json';
 
 class App extends Component {
   render() {
     return (
-      <section>
-        <Intro />
+      <section className={styles}>
+        <Intro copyA={intro.top.A} copyB={intro.top.B} />
         <Content />
       </section>
     );
