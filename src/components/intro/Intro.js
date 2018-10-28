@@ -7,50 +7,43 @@ class Intro extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHoveringTop: false,
-      isHoveringMid: false,
-      // midActive: false,
-      // bottomActive: false,
-    };
+      isHovering: false
+    }
   }
 
   handleMouseEnter = () => {
     this.setState({
-      isHoveringTop: true,
-      isHoveringMid: true
-      // {midActive: true},
-      // {bottomActive: true}
+      isHovering: true
     });
   };
 
   handleMouseLeave = () => {
     this.setState({
-      isHoveringTop: false,
-      isHoveringMid: false
+      isHovering: false
     });
   };
 
   render() {
     const { copyA, copyB, section } = this.props;
-    const { isHoveringTop, isHoveringMid } = this.state;
+    const { isHovering } = this.state;
 
-    const topClasses = classNames(
+    const classes = classNames(
       styles.index,
-      styles.mid,
       {
         [styles.top]: this.section="top",
-        [styles.topAlternate]: [isHoveringTop, this.section="top"],
-        [styles.midAlternate]: [isHoveringMid, this.section="mid"]
+        [styles.mid]: this.section="mid",
+        [styles.topAlternate]: [isHovering, this.section="top"],
+        [styles.midAlternate]: [isHovering, this.section="mid"]
       }
     );
 
-    const copy = isHoveringTop ? copyB : copyA;
+    const copy = isHovering ? copyB : copyA;
 
     return (
       <section>
         <div>
           <p
-            className={topClasses}
+            className={classes}
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
             section
@@ -64,8 +57,9 @@ class Intro extends Component {
 }
 
 Intro.propTypes = {
-  topCopyA: PropTypes.string.isRequired,
-  topCopyB: PropTypes.string.isRequired,
+  copyA: PropTypes.string.isRequired,
+  copyB: PropTypes.string.isRequired,
+  section: PropTypes.oneOf(["top", "mid", "bottom"])
 };
 
 export default Intro;
