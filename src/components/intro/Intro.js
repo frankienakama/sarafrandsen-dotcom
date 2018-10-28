@@ -8,6 +8,7 @@ class Intro extends Component {
     super(props);
     this.state = {
       isHoveringTop: false,
+      isHoveringMid: false,
       // midActive: false,
       // bottomActive: false,
     };
@@ -15,7 +16,8 @@ class Intro extends Component {
 
   handleMouseEnter = () => {
     this.setState({
-      isHoveringTop: true
+      isHoveringTop: true,
+      isHoveringMid: true
       // {midActive: true},
       // {bottomActive: true}
     });
@@ -23,39 +25,41 @@ class Intro extends Component {
 
   handleMouseLeave = () => {
     this.setState({
-      isHoveringTop: false
+      isHoveringTop: false,
+      isHoveringMid: false
     });
   };
 
   render() {
+    const { copyA, copyB, section } = this.props;
+    const { isHoveringTop, isHoveringMid } = this.state;
 
-      const { copyA, copyB } = this.props;
-      const { isHoveringTop } = this.state;
+    const topClasses = classNames(
+      styles.index,
+      styles.mid,
+      {
+        [styles.top]: this.section="top",
+        [styles.topAlternate]: [isHoveringTop, this.section="top"],
+        [styles.midAlternate]: [isHoveringMid, this.section="mid"]
+      }
+    );
 
-      const topClasses = classNames(
-        styles.index,
-        styles.top,
-        {
-          [styles.topAlternate]: isHoveringTop
-        }
-      );
+    const copy = isHoveringTop ? copyB : copyA;
 
-      const copy = isHoveringTop ? copyB : copyA;
-
-
-      return (
-        <section>
-          <div>
-            <p
-              className={topClasses}
-              onMouseEnter={this.handleMouseEnter}
-              onMouseLeave={this.handleMouseLeave}
-            >
-              {copy}
-            </p>
-          </div>
-        </section>
-      )
+    return (
+      <section>
+        <div>
+          <p
+            className={topClasses}
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
+            section
+          >
+            {copy}
+          </p>
+        </div>
+      </section>
+    )
   }
 }
 
