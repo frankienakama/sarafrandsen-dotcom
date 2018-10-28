@@ -9,10 +9,13 @@ class Intro extends Component {
     this.state = {active: false};
   }
 
-  handleClick = () => {
+  handleMouseEnter = () => {
     this.setState({ active: true });
   };
 
+  handleMouseLeave = () => {
+    this.setState({ active: false });
+  };
 
   render() {
       const classes = classNames({
@@ -21,7 +24,7 @@ class Intro extends Component {
         [styles.red]: this.state.active
       });
 
-      return <span className={classes} onClick={this.handleClick}>Click me</span>;
+      return <span className={classes} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>Click me</span>;
   }
 }
 
