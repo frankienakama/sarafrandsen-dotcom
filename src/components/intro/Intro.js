@@ -4,19 +4,24 @@ import classNames from 'classnames';
 import styles from './Intro.css';
 
 class Intro extends Component {
-
   constructor(props) {
     super(props);
     this.state = {active: false};
   }
 
-  click() {
-      this.setState({active: true});
-  }
+  handleClick = () => {
+    this.setState({ active: true });
+  };
+
 
   render() {
-      let classes = classNames(styles.blue, {[styles.red]: this.state.active});
-      return <span className={classes} onClick={this.click.bind(this)}>Click me</span>;
+      const classes = classNames({
+        [styles.clickMe]: true,
+        [styles.blue]: !this.state.active,
+        [styles.red]: this.state.active
+      });
+
+      return <span className={classes} onClick={this.handleClick}>Click me</span>;
   }
 }
 

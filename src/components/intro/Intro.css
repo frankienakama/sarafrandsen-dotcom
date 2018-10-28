@@ -1,3 +1,7 @@
+.clickMe {
+  cursor: pointer;
+}
+
 .red {
   color: red;
 }
