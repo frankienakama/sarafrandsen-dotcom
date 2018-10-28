@@ -31,7 +31,13 @@ class Intro extends Component {
       const { topCopyA, topCopyB } = this.props;
       const { isHoveringTop } = this.state;
 
-      const classes = classNames(styles.index);
+      const topClasses = classNames(
+        styles.index,
+        styles.top,
+        {
+          [styles.topAlternate]: isHoveringTop
+        }
+      );
 
       const copy = isHoveringTop ? topCopyB : topCopyA;
 
@@ -39,7 +45,7 @@ class Intro extends Component {
         <section>
           <div>
             <p
-              className={classes}
+              className={topClasses}
               onMouseEnter={this.handleMouseEnter}
               onMouseLeave={this.handleMouseLeave}
             >
