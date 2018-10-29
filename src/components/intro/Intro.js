@@ -20,11 +20,9 @@ class Intro extends Component {
       <section
         className={sectionClasses}
       >
-        <span>
+        <div className={styles.hover}>
           {copyA}
-        </span>
-        <div className={styles.b}>
-          <span>
+          <span className={styles.b}>
             {copyB}
           </span>
         </div>
