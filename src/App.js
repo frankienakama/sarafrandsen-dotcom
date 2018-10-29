@@ -7,7 +7,7 @@ import intro from './components/intro/intro.json';
 class App extends Component {
   render() {
     return (
-      <body>
+      <div>
         <main className={styles.main}>
           <section>
             <Intro copyA={intro.top.A} copyB={intro.top.B} introSection={"top"} />
@@ -19,7 +19,7 @@ class App extends Component {
           </section> */}
         </main>
         <footer className={styles.footer} />
-      </body>
+      </div>
     );
   }
 }

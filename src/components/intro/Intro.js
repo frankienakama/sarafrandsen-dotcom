@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Intro.css';
+import animation from 'animate.css';
 
 class Intro extends Component {
   constructor(props) {
@@ -29,24 +30,22 @@ class Intro extends Component {
 
     const sectionClasses = classNames(
       styles.section,
+      isHovering && [styles.alternate, animation.animated, animation.slideInDown],
       {
         [styles.top]: introSection==="top",
         [styles.mid]: introSection==="mid",
-        [styles.bottom]: introSection==="bottom",
-        [styles.alternate]: isHovering
+        [styles.bottom]: introSection==="bottom"
       }
     );
 
     const copy = isHovering ? copyB : copyA;
-
+console.log(isHovering)
     return (
       <section
-        className={sectionClasses}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
-        introSection={introSection}
       >
-        <span>
+        <span className={sectionClasses}>
           {copy}
         </span>
       </section>
