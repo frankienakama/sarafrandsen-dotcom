@@ -1,7 +1,49 @@
-.red {
-  color: red;
+.section {
+  height: 33.5vh;
+  width: 100%;
+  color: white;
+  font-size: 40px;
+  padding: 1px 0 2px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.blue {
-  color: blue;
+.top {
+  background-color: #FE4A49;
+}
+
+.mid {
+  background-color: #FED766;
+}
+
+.bottom {
+  background-color: #009FB7;
+}
+
+.b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 0;
+  background-color: #E6E6EA;
+  overflow: hidden;
+  transition: .5s ease;
+  text-decoration:none;
+}
+
+.hover {
+  height: 100%;
+  display: flex;
+  align-items: center
+}
+
+.hover:hover .b {
+  bottom: 0;
+  height: 100%;
 }
