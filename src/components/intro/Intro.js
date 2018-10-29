@@ -9,7 +9,12 @@ class Intro extends Component {
       <main className={styles.main}>
           <section>
             <div>
-                <IntroNav copyA={intro.top.A} copyB={intro.top.B} introSection={"top"} linkTo="/content" />
+                <IntroNav
+                  copyA={intro.top.A}
+                  copyB={intro.top.B}
+                  introSection={"top"}
+                  linkTo="/content"
+                />
 
                 <IntroNav copyA={intro.mid.A} copyB={intro.mid.B} introSection={"mid"} />
 
