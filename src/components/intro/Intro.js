@@ -1,40 +1,32 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import styles from './Intro.css';
+import React, {Component} from 'react';
+import {
+  Link
+} from "react-router-dom";
+import IntroNav from '../introNav/IntroNav';
+import styles from '../introNav/IntroNav.css';
+import intro from './intro.json';
 
 class Intro extends Component {
   render() {
-    const { copyA, copyB, introSection } = this.props;
-
-    const sectionClasses = classNames(
-      styles.section,
-      {
-        [styles.top]: introSection==="top",
-        [styles.mid]: introSection==="mid",
-        [styles.bottom]: introSection==="bottom"
-      }
-    );
-
     return (
-      <section
-        className={sectionClasses}
-      >
-        <div className={styles.hover}>
-          {copyA}
-          <span className={styles.b}>
-            {copyB}
-          </span>
-        </div>
-      </section>
-    )
+      <main className={styles.main}>
+          <section>
+            <div>
+              <Link to="/content">
+                <IntroNav copyA={intro.top.A} copyB={intro.top.B} introSection={"top"} />
+              </Link>
+
+                <IntroNav copyA={intro.mid.A} copyB={intro.mid.B} introSection={"mid"} />
+
+
+                <IntroNav copyA={intro.bottom.A} copyB={intro.bottom.B} introSection={"bottom"} />
+
+            </div>
+          </section>
+        <footer className={styles.footer} />
+      </main>
+    );
   }
 }
-
-Intro.propTypes = {
-  copyA: PropTypes.string.isRequired,
-  copyB: PropTypes.string.isRequired,
-  introSection: PropTypes.oneOf(["top", "mid", "bottom"])
-};
 
 export default Intro;

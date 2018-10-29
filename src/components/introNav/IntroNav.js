@@ -1,0 +1,40 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import styles from './IntroNav.css';
+
+class IntroNav extends Component {
+  render() {
+    const { copyA, copyB, introSection } = this.props;
+
+    const sectionClasses = classNames(
+      styles.section,
+      {
+        [styles.top]: introSection==="top",
+        [styles.mid]: introSection==="mid",
+        [styles.bottom]: introSection==="bottom"
+      }
+    );
+
+    return (
+      <section
+        className={sectionClasses}
+      >
+        <div className={styles.hover}>
+          {copyA}
+          <span className={styles.b}>
+            {copyB}
+          </span>
+        </div>
+      </section>
+    )
+  }
+}
+
+IntroNav.propTypes = {
+  copyA: PropTypes.string.isRequired,
+  copyB: PropTypes.string.isRequired,
+  introSection: PropTypes.oneOf(["top", "mid", "bottom"])
+};
+
+export default IntroNav;
