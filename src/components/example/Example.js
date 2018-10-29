@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Example.css'
 
 class Example extends Component {
   render() {
@@ -26,7 +25,7 @@ class Example extends Component {
   }
 }
 
-Example.PropTypes = {
+Example.propTypes = {
   title: PropTypes.string,
   description: PropTypes.arrayOf(PropTypes.string),
   url: PropTypes.string
