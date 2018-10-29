@@ -1,13 +1,28 @@
 .section {
-  height: 33.5%;
+  height: 33.5vh;
+  width: 100%;
+  color: white;
+  font-size: 40px;
+  padding: 1px 0 2px;
+  position: relative;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 }
 
 .top {
-  background-color: yellow;
-  color: #666;
+  background-color: #FE4A49;
 }
 
-.topAlternate {
-  background-color: blue;
-  color: #ddd;
+.mid {
+  background-color: #FED766;
+}
+
+.bottom {
+  background-color: #009FB7;
+}
+
+.alternate {
+  background-color: #E6E6EA;
 }
