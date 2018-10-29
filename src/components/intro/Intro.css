@@ -23,12 +23,21 @@
 }
 
 .b {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 0;
+  background-color: #E6E6EA;
+  overflow: hidden;
+  transition: .5s ease;
+  text-decoration:none;
 }
 
 .section:hover .b {
-  background-color: #E6E6EA;
-  display: flex;
-  overflow: hidden;
-  transform: translate(-50%, -50%);
+  bottom: 0;
+  height: 100%;
 }

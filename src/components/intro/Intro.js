@@ -24,7 +24,7 @@ class Intro extends Component {
           {copyA}
         </span>
         <div className={styles.b}>
-          <span className>
+          <span>
             {copyB}
           </span>
         </div>
