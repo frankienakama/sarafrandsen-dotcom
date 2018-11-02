@@ -6,14 +6,19 @@ import styles from './IntroNav.css';
 
 class IntroNav extends Component {
   render() {
-    const { copyA, copyB, introSection, linkTo } = this.props;
+    const {
+      copyA,
+      copyB,
+      introSection,
+      linkTo
+    } = this.props;
 
     const sectionClasses = classNames(
       styles.section,
       {
-        [styles.top]: introSection==="top",
-        [styles.mid]: introSection==="mid",
-        [styles.bottom]: introSection==="bottom"
+        [styles.top]: introSection === "top",
+        [styles.mid]: introSection === "mid",
+        [styles.bottom]: introSection === "bottom"
       }
     );
 
@@ -23,9 +28,11 @@ class IntroNav extends Component {
       >
         <div className={styles.hover}>
           {copyA}
-          <span className={styles.b}>
-            <Link to={linkTo}>{copyB}</Link>
-          </span>
+          <Link to={linkTo}>
+            <span className={styles.b}>
+              {copyB}
+            </span>
+          </Link>
         </div>
       </section>
     )
