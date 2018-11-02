@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import NavHeader from "../navHeader/NavHeader";
+import HeaderNav from "../headerNav/HeaderNav";
 import copy from "./header.json";
 
 class Header extends Component {
@@ -13,28 +13,28 @@ class Header extends Component {
             <section>
                 <ul>
                     <li>
-                        <NavHeader
+                        <HeaderNav
                             linkTo={"/home"}
                             copy={copy.home}
                             currentPage={currentPage}
                         />
                     </li>
                     <li>
-                        <NavHeader
+                        <HeaderNav
                             linkTo={"/professional"}
                             copy={copy.professional}
                             currentPage={currentPage}
                         />
                     </li>
                     <li>
-                        <NavHeader
+                        <HeaderNav
                             linkTo={"/personal"}
                             copy={copy.personal}
                             currentPage={currentPage}
                         />
                     </li>
                     <li>
-                        <NavHeader
+                        <HeaderNav
                             linkTo={"/cosplay"}
                             copy={copy.cosplay}
                             currentPage={currentPage}

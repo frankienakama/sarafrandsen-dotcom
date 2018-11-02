@@ -4,9 +4,9 @@ import classNames from "classnames";
 import {
     NavLink
 } from "react-router-dom";
-import styles from "./NavHeader.css";
+import styles from "./headerNav.css";
 
-class NavHeader extends Component {
+class HeaderNav extends Component {
     render() {
         const {
             copy,
@@ -15,7 +15,7 @@ class NavHeader extends Component {
         } = this.props;
 
         const classes = classNames(
-            styles.navHeader,
+            styles.header,
             {
                 [styles.highlight]: currentPage
             }
@@ -31,10 +31,10 @@ class NavHeader extends Component {
     }
 }
 
-NavHeader.propTypes = {
+HeaderNav.propTypes = {
     copy: PropTypes.string,
     currentPage: PropTypes.string,
     linkTo: PropTypes.string
 }
 
-export default NavHeader;
+export default HeaderNav;
