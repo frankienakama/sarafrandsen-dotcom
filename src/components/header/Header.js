@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classNames from "classnames";
 import HeaderNav from "../headerNav/HeaderNav";
 import copy from "./header.json";
 import styles from "./Header.css";
@@ -28,14 +27,8 @@ class Header extends Component {
             });
         }
 
-        const classes = classNames(
-            {
-                [styles.comingSoon]: this.state.isActive
-            }
-        )
-
         return (
-            <section className={classes}>
+            <section>
                 <ul>
                     <li>
                         <HeaderNav
@@ -59,16 +52,12 @@ class Header extends Component {
                         onMouseEnter={handleOnMouseEnter}
                         onMouseLeave={handleOnMouseLeave}
                     >
-                        <span>
-                            {this.state.isActive ? copy.comingSoon : copy.cosplay}
-                        </span>
-                        {/* TODO:
                         <HeaderNav
                             linkTo={"/cosplay"}
-                            copy={copy.cosplay}
-                        /> */}
+                            copy={this.state.isActive ? copy.comingSoon : copy.cosplay}
+                        />
                     </li>
-                    <li>
+                    <li className={styles.rightNav}>
                         <HeaderNav
                             linkTo={"/contact"}
                             copy={copy.contact}

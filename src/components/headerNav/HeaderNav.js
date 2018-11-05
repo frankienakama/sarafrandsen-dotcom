@@ -14,6 +14,7 @@ class HeaderNav extends Component {
         } = this.props;
 
         const classes = classNames(
+            styles.nav,
             {
                 [styles.currentPage]: window.location.href.includes(linkTo)
             }
@@ -21,9 +22,7 @@ class HeaderNav extends Component {
 
         return (
             <NavLink to={linkTo} className={classes}>
-                <span>
-                    {copy}
-                </span>
+                {copy}
             </NavLink>
         )
     }

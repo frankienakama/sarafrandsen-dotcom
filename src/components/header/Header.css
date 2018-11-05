@@ -1,22 +1,18 @@
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding-left: 5rem;
     overflow: hidden;
+    width: 100%;
+    /* background: #0069ed; */
 }
+
 
 li {
-    float: left;
-    display: block;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
+    display: inline-block;
 }
 
-.comingSoon {
-    color: white;
-}
-
-.currentPage {
-    background-color: blueviolet;
+.rightNav {
+    position: fixed;
+    right: 5rem;
 }
