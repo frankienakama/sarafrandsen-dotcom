@@ -4,7 +4,7 @@ import classNames from "classnames";
 import {
     NavLink
 } from "react-router-dom";
-import styles from "./headerNav.css";
+import styles from "./HeaderNav.css";
 
 class HeaderNav extends Component {
     render() {
