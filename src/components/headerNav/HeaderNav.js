@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import classNames from "classnames";
+import PropTypes from 'prop-types';
 import {
     NavLink
 } from "react-router-dom";
@@ -10,16 +10,14 @@ class HeaderNav extends Component {
     render() {
         const {
             copy,
-            currentPage,
             linkTo
         } = this.props;
 
         const classes = classNames(
-            styles.header,
             {
-                [styles.highlight]: currentPage
+                [styles.currentPage]: window.location.href.includes(linkTo)
             }
-        );
+        )
 
         return (
             <NavLink to={linkTo} className={classes}>
@@ -33,7 +31,6 @@ class HeaderNav extends Component {
 
 HeaderNav.propTypes = {
     copy: PropTypes.string,
-    currentPage: PropTypes.string,
     linkTo: PropTypes.string
 }
 

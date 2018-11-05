@@ -16,3 +16,7 @@ li {
 .comingSoon {
     color: white;
 }
+
+.currentPage {
+    background-color: blueviolet;
+}

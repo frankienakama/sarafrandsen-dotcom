@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import classNames from "classnames";
 import HeaderNav from "../headerNav/HeaderNav";
 import copy from "./header.json";
@@ -14,18 +13,19 @@ class Header extends Component {
     }
 
     render() {
-        const {
-            currentPage
-        } = this.props;
 
-        const handleComingSoonMouseEnter = event => {
+        const handleOnMouseEnter = event => {
             event.preventDefault();
-            this.setState({ isActive: true });
+            this.setState({
+                isActive: true
+            });
         }
 
-        const handleComingSoonMouseLeave = event => {
+        const handleOnMouseLeave = event => {
             event.preventDefault();
-            this.setState({ isActive: false });
+            this.setState({
+                isActive: false
+            });
         }
 
         const classes = classNames(
@@ -41,26 +41,23 @@ class Header extends Component {
                         <HeaderNav
                             linkTo={"/home"}
                             copy={copy.home}
-                            currentPage={currentPage}
                         />
                     </li>
                     <li>
                         <HeaderNav
                             linkTo={"/professional"}
                             copy={copy.professional}
-                            currentPage={currentPage}
                         />
                     </li>
                     <li>
                         <HeaderNav
                             linkTo={"/personal"}
                             copy={copy.personal}
-                            currentPage={currentPage}
                         />
                     </li>
                     <li
-                        onMouseEnter={handleComingSoonMouseEnter}
-                        onMouseLeave={handleComingSoonMouseLeave}
+                        onMouseEnter={handleOnMouseEnter}
+                        onMouseLeave={handleOnMouseLeave}
                     >
                         <span>
                             {this.state.isActive ? copy.comingSoon : copy.cosplay}
@@ -69,17 +66,18 @@ class Header extends Component {
                         <HeaderNav
                             linkTo={"/cosplay"}
                             copy={copy.cosplay}
-                            currentPage={currentPage}
                         /> */}
+                    </li>
+                    <li>
+                        <HeaderNav
+                            linkTo={"/contact"}
+                            copy={copy.contact}
+                        />
                     </li>
                 </ul>
             </section>
         )
     }
-}
-
-Header.propTypes = {
-    currentPage: PropTypes.string
 }
 
 export default Header;
