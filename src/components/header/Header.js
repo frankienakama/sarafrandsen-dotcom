@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from "classnames";
 import HeaderNav from "../headerNav/HeaderNav";
 import copy from "./header.json";
-import "./Header.css";
+import styles from "./Header.css";
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isActive: false
+        }
+    }
+
     render() {
         const {
             currentPage
         } = this.props;
 
+        const handleComingSoonMouseEnter = event => {
+            event.preventDefault();
+            this.setState({ isActive: true });
+        }
+
+        const handleComingSoonMouseLeave = event => {
+            event.preventDefault();
+            this.setState({ isActive: false });
+        }
+
+        const classes = classNames(
+            {
+                [styles.comingSoon]: this.state.isActive
+            }
+        )
+
         return (
-            <section>
+            <section className={classes}>
                 <ul>
                     <li>
                         <HeaderNav
@@ -34,12 +58,19 @@ class Header extends Component {
                             currentPage={currentPage}
                         />
                     </li>
-                    <li>
+                    <li
+                        onMouseEnter={handleComingSoonMouseEnter}
+                        onMouseLeave={handleComingSoonMouseLeave}
+                    >
+                        <span>
+                            {this.state.isActive ? copy.comingSoon : copy.cosplay}
+                        </span>
+                        {/* TODO:
                         <HeaderNav
                             linkTo={"/cosplay"}
                             copy={copy.cosplay}
                             currentPage={currentPage}
-                        />
+                        /> */}
                     </li>
                 </ul>
             </section>
