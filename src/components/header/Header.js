@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import HeaderNav from "../headerNav/HeaderNav";
 import copy from "./header.json";
+import "./Header.css";
 
 class Header extends Component {
     render() {
