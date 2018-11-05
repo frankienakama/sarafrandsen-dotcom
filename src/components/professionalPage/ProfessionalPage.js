@@ -8,7 +8,7 @@ class ProfessionalPage extends Component {
 
         return (
             <section>
-                <Header currentPage={"professional"} />
+                <Header />
                 <div>
                     <Project
                          title={copy.giftFinder.title}
