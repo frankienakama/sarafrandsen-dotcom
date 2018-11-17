@@ -28,9 +28,13 @@ class Header extends Component {
             });
         }
 
+        const classes = classNames(
+            styles.container
+        )
+
         return (
-            <section className={styles}>
-                <ul>
+            <section>
+                <ul  className={styles.container}>
                     <li>
                         <HeaderNav
                             linkTo={"/home"}
