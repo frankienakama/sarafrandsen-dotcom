@@ -1,18 +1,16 @@
 ul {
     list-style-type: none;
     margin: 0;
-    padding-left: 5rem;
     overflow: hidden;
+    padding: 0;
     width: 100%;
     /* background: #0069ed; */
 }
-
 
 li {
     display: inline-block;
 }
 
 .rightNav {
-    position: fixed;
-    right: 5rem;
+    float: right;
 }

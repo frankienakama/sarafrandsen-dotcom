@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from "classnames";
 import HeaderNav from "../headerNav/HeaderNav";
 import copy from "./header.json";
 import styles from "./Header.css";
@@ -28,7 +29,7 @@ class Header extends Component {
         }
 
         return (
-            <section>
+            <section className={styles}>
                 <ul>
                     <li>
                         <HeaderNav
@@ -57,7 +58,9 @@ class Header extends Component {
                             copy={this.state.isActive ? copy.comingSoon : copy.cosplay}
                         />
                     </li>
-                    <li className={styles.rightNav}>
+                    <li
+                        className={styles.rightNav}
+                    >
                         <HeaderNav
                             linkTo={"/contact"}
                             copy={copy.contact}
